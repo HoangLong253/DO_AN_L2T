@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'mode.dart';
+import 'info.dart';
 
 class Menu extends StatefulWidget {
   const Menu({super.key});
@@ -126,7 +127,13 @@ class _MenuState extends State<Menu> {
                                     MaterialStateProperty.all(CircleBorder()),
                                 fixedSize:
                                     MaterialStateProperty.all(Size(0, 60))),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Info(),
+                                  ));
+                            },
                             child: Container(
                               child: Icon(
                                 Icons.account_circle,
