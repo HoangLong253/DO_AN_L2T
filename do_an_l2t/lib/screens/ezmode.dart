@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'question.dart';
 
 class Ezmode extends StatefulWidget {
   const Ezmode({super.key});
@@ -11,6 +12,10 @@ class _EzmodeState extends State<Ezmode> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Dễ'),
+        backgroundColor: Colors.red,
+      ),
       body: Center(
           child: ListView(
         children: [
@@ -50,7 +55,13 @@ class _EzmodeState extends State<Ezmode> {
                                   MaterialStatePropertyAll<Color>(Colors.red),
                               shape: MaterialStateProperty.all(
                                   RoundedRectangleBorder())),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Question(),
+                                ));
+                          },
                           child: Text('1'),
                         ),
                       ),
