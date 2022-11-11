@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'info.dart';
 
-class Medmode extends StatefulWidget {
-  const Medmode({super.key});
+class SuperHardMode extends StatefulWidget {
+  const SuperHardMode({super.key});
 
   @override
-  State<Medmode> createState() => _MedmodeState();
+  State<SuperHardMode> createState() => _SuperHardModeState();
 }
 
-class _MedmodeState extends State<Medmode> {
+class _SuperHardModeState extends State<SuperHardMode> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
