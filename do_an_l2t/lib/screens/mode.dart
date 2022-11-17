@@ -1,7 +1,7 @@
-//import 'package:do_an_mon/screens/medmode.dart';
+import 'package:do_an_l2t/screens/medmode.dart';
 import 'package:flutter/material.dart';
-//import 'info.dart';
-//import 'ezmode.dart';
+import 'info.dart';
+import 'ezmode.dart';
 
 class Mode extends StatefulWidget {
   const Mode({super.key});
@@ -51,11 +51,11 @@ class _ModeSate extends State<Mode> {
                           shape: MaterialStateProperty.all(
                               RoundedRectangleBorder())),
                       onPressed: () {
-                        /*Navigator.push(
+                        Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => Ezmode(),
-                            ));*/
+                            ));
                       },
                       child: Text('Dễ'),
                     ),
@@ -70,11 +70,11 @@ class _ModeSate extends State<Mode> {
                           shape: MaterialStateProperty.all(
                               RoundedRectangleBorder())),
                       onPressed: () {
-                        /*Navigator.push(
+                        Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => Medmode(),
-                            ));*/
+                            ));
                       },
                       child: Text('Trung Bình'),
                     ),
@@ -135,11 +135,11 @@ class _ModeSate extends State<Mode> {
                                 fixedSize:
                                     MaterialStateProperty.all(Size(0, 60))),
                             onPressed: () {
-                              /*Navigator.push(
+                              Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => Info(),
-                                  ));*/
+                                  ));
                             },
                             child: Container(
                               child: Icon(

@@ -1,5 +1,5 @@
-import 'package:do_an_mon/screens/mode.dart';
-import 'package:do_an_mon/screens/setting.dart';
+import 'package:do_an_l2t/screens/mode.dart';
+import 'package:do_an_l2t/screens/setting.dart';
 import 'package:flutter/material.dart';
 import 'info.dart';
 import 'leaderboard.dart';
