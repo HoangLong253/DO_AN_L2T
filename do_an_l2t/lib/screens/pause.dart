@@ -1,5 +1,5 @@
-import 'package:do_an_mon/screens/mode.dart';
-import 'package:do_an_mon/screens/question.dart';
+import 'package:do_an_l2t/screens/menu.dart';
+import 'package:do_an_l2t/screens/question.dart';
 import 'package:flutter/material.dart';
 
 import 'menu.dart';

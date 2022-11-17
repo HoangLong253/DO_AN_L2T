@@ -1,4 +1,4 @@
-import 'package:do_an_mon/screens/pause.dart';
+import 'package:do_an_l2t/screens/pause.dart';
 import 'package:flutter/material.dart';
 
 class Question extends StatefulWidget {
