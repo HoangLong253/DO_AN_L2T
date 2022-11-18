@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'menu.dart';
+import 'menu.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -116,11 +116,11 @@ class _LoginState extends State<Login> {
                           MaterialStateProperty.all(RoundedRectangleBorder()),
                     ),
                     onPressed: () {
-                      /*Navigator.push(
+                      Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => Menu()
-                              ));*/
+                              ));
                     },
                     child: const Padding(
                         padding: EdgeInsets.fromLTRB(10, 10, 10, 10),

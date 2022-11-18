@@ -1,4 +1,4 @@
-import 'package:do_an_l2t/screens/medmode.dart';
+import 'medmode.dart';
 import 'package:flutter/material.dart';
 import 'info.dart';
 import 'ezmode.dart';
