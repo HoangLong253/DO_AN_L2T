@@ -12,7 +12,7 @@ class _InfoState extends State<Info> {
   double padSize = 20;
   double height = 65;
   double width = 250;
-  String name = 'name';
+  //String name = 'name';
 
   @override
   Widget build(BuildContext context) {
