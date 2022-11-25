@@ -1,7 +1,7 @@
+//import 'package:do_an_mon/screens/medmode.dart';
 import 'package:flutter/material.dart';
-import 'ezmode.dart';
-import 'medmode.dart';
-import 'hardmode.dart';
+//import 'info.dart';
+//import 'ezmode.dart';
 
 class Mode extends StatefulWidget {
   const Mode({super.key});
@@ -45,13 +45,11 @@ class _ModeState extends State<Mode> {
                           shape: MaterialStateProperty.all(
                               RoundedRectangleBorder())),
                       onPressed: () {
-                        setState(() {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => SuperHardMode(),
-                              ));
-                        });
+                        /*Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Ezmode(),
+                            ));*/
                       },
                       child: Text('Siêu khó'),
                     ),
@@ -66,13 +64,11 @@ class _ModeState extends State<Mode> {
                           shape: MaterialStateProperty.all(
                               RoundedRectangleBorder())),
                       onPressed: () {
-                        setState(() {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Hardmode(),
-                              ));
-                        });
+                        /*Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Medmode(),
+                            ));*/
                       },
                       child: Text('Khó'),
                     ),
@@ -119,6 +115,53 @@ class _ModeState extends State<Mode> {
                       child: Text('Dễ'),
                     ),
                   ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 45, 0, 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(40, 0, 50, 40),
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStatePropertyAll<Color>(Colors.red),
+                                shape:
+                                    MaterialStateProperty.all(CircleBorder()),
+                                fixedSize:
+                                    MaterialStateProperty.all(Size(0, 60))),
+                            onPressed: () {},
+                            child: Icon(Icons.settings),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(60, 0, 40, 40),
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStatePropertyAll<Color>(Colors.red),
+                                shape:
+                                    MaterialStateProperty.all(CircleBorder()),
+                                fixedSize:
+                                    MaterialStateProperty.all(Size(0, 60))),
+                            onPressed: () {
+                              /*Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Info(),
+                                  ));*/
+                            },
+                            child: Container(
+                              child: Icon(
+                                Icons.account_circle,
+                                size: 30,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ))),
         ],

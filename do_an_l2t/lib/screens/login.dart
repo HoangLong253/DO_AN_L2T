@@ -1,10 +1,6 @@
 import 'package:do_an_l2t/screens/register.dart';
 import 'package:flutter/material.dart';
-
-import '../components/container_with_backgroundImg.dart';
-import '../components/textfieldwtext.dart';
-
-import 'menu.dart';
+//import 'menu.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -84,37 +80,24 @@ class _LoginState extends State<Login> {
                     shape: MaterialStateProperty.all(
                         RoundedRectangleBorder()
                     ),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Menu(),
-                        )
-                    );
-                  },
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                    child: Text('Đăng nhập'),
-                  )
-              ),
-              TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Register()
-                        )
-                    );
-                  },
-                  child: Text('Bạn chưa có tài khoản? Đăng kí ngay',
-                    textAlign: TextAlign.left,
-                    style: TextStyle(fontSize: 15, color: Colors.white),)
-              )
-            ],
-          ),
-        ),
-      )
+                    onPressed: () {
+                      /*Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Menu()
+                              ));*/
+                    },
+                    child: const Padding(
+                        padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                        child: Text('Đăng Nhập'))),
+                Text(
+                  'Bạn chưa có tài khoản? Đăng kí ngay',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 15, color: Colors.white),
+                ),
+              ],
+            ),
+          )),
     );
   }
 }
