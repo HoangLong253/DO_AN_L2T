@@ -1,5 +1,8 @@
 //import 'package:do_an_mon/screens/medmode.dart';
 import 'package:flutter/material.dart';
+
+import 'ezmode.dart';
+import 'medmode.dart';
 //import 'info.dart';
 //import 'ezmode.dart';
 

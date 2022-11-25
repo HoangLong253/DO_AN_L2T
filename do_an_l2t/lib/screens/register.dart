@@ -1,4 +1,4 @@
-import 'package:do_an_l2t/screens/register.dart';
+import '/screens/register.dart';
 import 'package:flutter/material.dart';
 
 import '../components/container_with_backgroundImg.dart';
@@ -6,14 +6,14 @@ import '../components/textfieldwtext.dart';
 
 import 'menu.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class Register extends StatefulWidget {
+  const Register({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Register> createState() => _RegisterState();
 }
 
-class _LoginState extends State<Login> {
+class _RegisterState extends State<Register> {
   bool isChecked = false;
 
   Color getColor(Set<MaterialState> states) {

@@ -4,8 +4,6 @@ import '../components/container_with_backgroundImg.dart';
 import '../components/defaultbutton.dart';
 import '../components/logo.dart';
 import '../components/roundedbutton.dart';
-import '../screens/competitive.dart';
-import '../screens/store.dart';
 
 import 'mode.dart';
 import 'setting.dart';
@@ -43,7 +41,7 @@ class _MenuState extends State<Menu> {
               //padding: EdgeInsets.fromLTRB(20, 0, 10, 20),
               DefaultButton(
                 padding: EdgeInsets.fromLTRB(20, 0, 10, 20),
-                nextScreen: Competitive(),
+                nextScreen: Container(),
                 text: 'Đối kháng',
               ),
               //padding: EdgeInsets.fromLTRB(20, 0, 10, 20),
@@ -54,7 +52,7 @@ class _MenuState extends State<Menu> {
               //padding: EdgeInsets.fromLTRB(20, 0, 10, 20),
               DefaultButton(
                 padding: EdgeInsets.fromLTRB(20, 0, 10, 20),
-                nextScreen: Store(),
+                nextScreen: Container(),
                 text: 'Cửa hàng',
               ),
               Padding(
