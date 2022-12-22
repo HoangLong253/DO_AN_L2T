@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class InfoBox extends StatelessWidget {
+class InfoBox extends StatelessWidget{
   InfoBox({super.key, required this.text});
 
   final String text;
@@ -22,11 +22,15 @@ class InfoBox extends StatelessWidget {
           child: Center(
             child: Text(
               text,
-              style: TextStyle(fontSize: 16, color: Colors.white),
+              style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.white
+              ),
             ),
           ),
         ),
       ),
     );
   }
+
 }
