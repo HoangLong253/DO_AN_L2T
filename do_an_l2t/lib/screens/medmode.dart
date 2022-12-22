@@ -4,6 +4,7 @@ import '../components/container_with_backgroundImg.dart';
 import '../components/headertext.dart';
 import '../components/squarebutton.dart';
 
+import 'complete.dart';
 import 'question.dart';
 
 class Medmode extends StatefulWidget {
@@ -40,23 +41,23 @@ class _MedmodeState extends State<Medmode> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
                                   child: Text('1'),
                                   nextScreen: Question(),
                                 ),
                                 SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
                                   child: Text('2'),
                                   nextScreen: Question(),
                                 ),
                                 SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
                                   child: Text('3'),
                                   nextScreen: Question(),
                                 ),
                                 SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
                                   child: Text('4'),
-                                  nextScreen: Question(),
-                                ),
-                                SquareButton(
-                                  child: Text('5'),
                                   nextScreen: Question(),
                                 ),
                               ],
@@ -65,43 +66,63 @@ class _MedmodeState extends State<Medmode> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
+                                  child: Text('5'),
+                                  nextScreen: Question(),
+                                ),
+                                SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
                                   child: Text('6'),
                                   nextScreen: Question(),
-                                ),SquareButton(
+                                ),
+                                SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
                                   child: Text('7'),
                                   nextScreen: Question(),
                                 ),
                                 SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
                                   child: Text('8'),
                                   nextScreen: Question(),
                                 ),
-                                SquareButton(
-                                  child: Text('9'),
-                                  nextScreen: Question(),
-                                ),
-                                SquareButton(
-                                  nextScreen: Question(),
-                                  child: Text('10'),
-                                )
                               ],
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SquareButton(
-                                  child: Text('11'),
-                                  nextScreen: Question(),
-                                ),SquareButton(
-                                  child: Text('12'),
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
+                                  child: Text('9'),
                                   nextScreen: Question(),
                                 ),
                                 SquareButton(
-                                  child: Text('13'),
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
                                   nextScreen: Question(),
-                                  color: Colors.purple,
+                                  child: Text('10'),
+                                ),
+                                SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
+                                  child: Text('11'),
+                                  nextScreen: Question(),
+                                ),
+                                SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
+                                  child: Text('12'),
+                                  nextScreen: Question(),
                                 ),
                               ],
                             ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
+                                  child: Text('13'),
+                                  nextScreen: Complete(),
+                                  color: Colors.purple,
+                                ),
+                              ],
+                            )
                           ],
                         )
                       ],
