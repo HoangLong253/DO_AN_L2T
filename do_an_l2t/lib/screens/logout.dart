@@ -1,3 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import '../components/smallbutton.dart';
+import 'info.dart';
+import 'start.dart';
 import 'package:flutter/material.dart';
 
 class Logout extends StatefulWidget {
@@ -8,6 +13,10 @@ class Logout extends StatefulWidget {
 }
 
 class _LogoutState extends State<Logout> {
+  Future signOut() async {
+    FirebaseAuth.instance.signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +41,10 @@ class _LogoutState extends State<Logout> {
                   child: Center(
                     child: Text(
                       'Bạn có chắc là muốn đăng xuất ?',
-                      style: TextStyle(fontSize: 20, color: Colors.white),
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontFamily: 'Avenger'),
                     ),
                   ))),
           Padding(
@@ -40,6 +52,10 @@ class _LogoutState extends State<Logout> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                /*SmallButton(
+                        onPressed: signOut(),
+                        text: 'Đăng Xuất'
+                    ),*/
                 Padding(
                   padding: EdgeInsets.all(10),
                   child: ElevatedButton(
@@ -48,7 +64,13 @@ class _LogoutState extends State<Logout> {
                       backgroundColor:
                           MaterialStatePropertyAll<Color>(Colors.red),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      FirebaseAuth.instance.signOut();
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Start()),
+                      );
+                    },
                     child: Text('Đăng xuất'),
                   ),
                 ),
@@ -60,7 +82,13 @@ class _LogoutState extends State<Logout> {
                       backgroundColor:
                           MaterialStatePropertyAll<Color>(Colors.grey),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Info(),
+                          ));
+                    },
                     child: Text('Huỷ'),
                   ),
                 ),
