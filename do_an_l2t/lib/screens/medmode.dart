@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../components/container_with_backgroundImg.dart';
+import '../components/headertext.dart';
+import '../components/squarebutton.dart';
+
+import 'complete.dart';
+import 'question.dart';
+
 class Medmode extends StatefulWidget {
   const Medmode({super.key});
 
@@ -15,234 +22,116 @@ class _MedmodeState extends State<Medmode> {
         title: Text('Trung bình'),
         backgroundColor: Colors.red,
       ),
-      body: Center(
-          child: ListView(
-            children: [
-              Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/backgroundImg.jpg'),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  height: MediaQuery.of(context).size.height,
-                  width: MediaQuery.of(context).size.width,
-                  child: Container(
-                    //padding: EdgeInsets.all(10),
-                    //margin: EdgeInsets.fromLTRB(20, 20, 20, MediaQuery.of(context).size.height),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(20, 100, 20, 0),
-                            child: Text(
-                              'Marvel Conquest',
-                              style: TextStyle(
-                                fontSize: 40,
-                                color: Colors.red,
-                              ),
-                            ),
-                          ),
-                          Row(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
-                                child: ElevatedButton(
-                                  style: ButtonStyle(
-                                      fixedSize:
-                                      MaterialStateProperty.all(Size(25, 50)),
-                                      backgroundColor:
-                                      MaterialStatePropertyAll<Color>(Colors.red),
-                                      shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder())),
-                                  onPressed: () {},
+      body: ContainerWImg(
+          child: Center(
+            child: ListView(
+              children: [
+                Container(
+                  //padding: EdgeInsets.all(10),
+                  //margin: EdgeInsets.fromLTRB(20, 20, 20, MediaQuery.of(context).size.height),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        HeaderText(
+                            text: 'Marvel Conquest'
+                        ),
+                        Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
                                   child: Text('1'),
+                                  nextScreen: Question(),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
-                                child: ElevatedButton(
-                                  style: ButtonStyle(
-                                      fixedSize:
-                                      MaterialStateProperty.all(Size(25, 50)),
-                                      backgroundColor:
-                                      MaterialStatePropertyAll<Color>(Colors.red),
-                                      shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder())),
-                                  onPressed: () {},
+                                SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
                                   child: Text('2'),
+                                  nextScreen: Question(),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
-                                child: ElevatedButton(
-                                  style: ButtonStyle(
-                                      fixedSize:
-                                      MaterialStateProperty.all(Size(25, 50)),
-                                      backgroundColor:
-                                      MaterialStatePropertyAll<Color>(Colors.red),
-                                      shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder())),
-                                  onPressed: () {},
+                                SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
                                   child: Text('3'),
+                                  nextScreen: Question(),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
-                                child: ElevatedButton(
-                                  style: ButtonStyle(
-                                      fixedSize:
-                                      MaterialStateProperty.all(Size(25, 50)),
-                                      backgroundColor:
-                                      MaterialStatePropertyAll<Color>(Colors.red),
-                                      shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder())),
-                                  onPressed: () {},
+                                SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
                                   child: Text('4'),
+                                  nextScreen: Question(),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
-                                child: ElevatedButton(
-                                  style: ButtonStyle(
-                                      fixedSize:
-                                      MaterialStateProperty.all(Size(25, 50)),
-                                      backgroundColor:
-                                      MaterialStatePropertyAll<Color>(Colors.red),
-                                      shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder())),
-                                  onPressed: () {},
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
                                   child: Text('5'),
+                                  nextScreen: Question(),
                                 ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
-                                child: ElevatedButton(
-                                  style: ButtonStyle(
-                                      fixedSize:
-                                      MaterialStateProperty.all(Size(25, 50)),
-                                      backgroundColor:
-                                      MaterialStatePropertyAll<Color>(Colors.red),
-                                      shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder())),
-                                  onPressed: () {},
+                                SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
                                   child: Text('6'),
+                                  nextScreen: Question(),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
-                                child: ElevatedButton(
-                                  style: ButtonStyle(
-                                      fixedSize:
-                                      MaterialStateProperty.all(Size(25, 50)),
-                                      backgroundColor:
-                                      MaterialStatePropertyAll<Color>(Colors.red),
-                                      shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder())),
-                                  onPressed: () {},
+                                SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
                                   child: Text('7'),
+                                  nextScreen: Question(),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
-                                child: ElevatedButton(
-                                  style: ButtonStyle(
-                                      fixedSize:
-                                      MaterialStateProperty.all(Size(25, 50)),
-                                      backgroundColor:
-                                      MaterialStatePropertyAll<Color>(Colors.red),
-                                      shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder())),
-                                  onPressed: () {},
+                                SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
                                   child: Text('8'),
+                                  nextScreen: Question(),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
-                                child: ElevatedButton(
-                                  style: ButtonStyle(
-                                      fixedSize:
-                                      MaterialStateProperty.all(Size(25, 50)),
-                                      backgroundColor:
-                                      MaterialStatePropertyAll<Color>(Colors.red),
-                                      shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder())),
-                                  onPressed: () {},
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
                                   child: Text('9'),
+                                  nextScreen: Question(),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
-                                child: ElevatedButton(
-                                  style: ButtonStyle(
-                                      fixedSize:
-                                      MaterialStateProperty.all(Size(25, 50)),
-                                      backgroundColor:
-                                      MaterialStatePropertyAll<Color>(Colors.red),
-                                      shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder())),
-                                  onPressed: () {},
+                                SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
+                                  nextScreen: Question(),
                                   child: Text('10'),
                                 ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
-                                child: ElevatedButton(
-                                  style: ButtonStyle(
-                                      fixedSize:
-                                      MaterialStateProperty.all(Size(25, 50)),
-                                      backgroundColor:
-                                      MaterialStatePropertyAll<Color>(Colors.red),
-                                      shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder())),
-                                  onPressed: () {},
+                                SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
                                   child: Text('11'),
+                                  nextScreen: Question(),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
-                                child: ElevatedButton(
-                                  style: ButtonStyle(
-                                      fixedSize:
-                                      MaterialStateProperty.all(Size(25, 50)),
-                                      backgroundColor:
-                                      MaterialStatePropertyAll<Color>(Colors.red),
-                                      shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder())),
-                                  onPressed: () {},
+                                SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
                                   child: Text('12'),
+                                  nextScreen: Question(),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
-                                child: ElevatedButton(
-                                  style: ButtonStyle(
-                                      fixedSize:
-                                      MaterialStateProperty.all(Size(25, 50)),
-                                      backgroundColor:
-                                      MaterialStatePropertyAll<Color>(Colors.red),
-                                      shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder())),
-                                  onPressed: () {},
-                                  child: IconButton(
-                                    onPressed: () {},
-                                    icon: Icon(Icons.favorite),
-                                  ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SquareButton(
+                                  padding: EdgeInsets.fromLTRB(20, 60, 10, 0),
+                                  child: Text('13'),
+                                  nextScreen: Complete(),
+                                  color: Colors.purple,
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ))),
-            ],
-          )),
+                              ],
+                            )
+                          ],
+                        )
+                      ],
+                    )
+                ),
+              ],
+            ),
+          )
+      )
     );
   }
 }

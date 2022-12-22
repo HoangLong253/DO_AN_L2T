@@ -7,15 +7,15 @@ class RoundedButton extends StatefulWidget {
     required this.padding,
     required this.size,
     required this.icon,
-    required this.nextScreen,
+    required this.onPressed,
     this.iconSize,
     this.color,
   });
 
   final double size;
   final IconData icon;
-  final Widget nextScreen;
   final EdgeInsetsGeometry padding;
+  final VoidCallback onPressed;
 
   late double? iconSize = 1.0;
   late Color? color;
@@ -38,16 +38,17 @@ class _RoundedButtonState extends State<RoundedButton>{
             shape: MaterialStateProperty.all(CircleBorder()),
             fixedSize: MaterialStateProperty.all(Size(0, widget.size))
         ),
-        onPressed: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => widget.nextScreen,
-              )
-          );
-        },
+        onPressed: widget.onPressed,
         child: Icon(widget.icon, size: widget.iconSize,),
       ),
     );
   }
 }
+
+/*Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) => widget.nextScreen,
+              ),
+                  (route) => route.isCurrent
+          );*/

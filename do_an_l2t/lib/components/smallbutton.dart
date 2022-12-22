@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class SmallButton extends StatefulWidget {
-  SmallButton({Key? key, required this.nextScreen, required this.text}) : super(key: key);
+  SmallButton({Key? key, required this.text, required this.onPressed}) : super(key: key);
 
-  final Widget nextScreen;
+  final VoidCallback onPressed;
   final String text;
   @override
   State<StatefulWidget> createState() {
@@ -15,7 +15,7 @@ class SmallButton extends StatefulWidget {
 class _SmallButtonState extends State<SmallButton>{
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+
     return ElevatedButton(
         style: ButtonStyle(
           backgroundColor: MaterialStatePropertyAll<Color>(
@@ -24,14 +24,7 @@ class _SmallButtonState extends State<SmallButton>{
               RoundedRectangleBorder()
           ),
         ),
-        onPressed: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => widget.nextScreen,
-              )
-          );
-        },
+        onPressed: widget.onPressed,
         child: Padding(
             padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
             child: Text(widget.text),

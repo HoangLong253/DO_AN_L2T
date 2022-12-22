@@ -1,113 +1,170 @@
-import '/screens/register.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:do_an_l2t/provider/provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../components/container_with_backgroundImg.dart';
+import '../components/smallbutton.dart';
 import '../components/textfieldwtext.dart';
+import '../components/container_with_backgroundImg.dart';
+import '../components/headertext.dart';
+import '../models/user.dart';
 
-import 'menu.dart';
+import 'login.dart';
 
 class Register extends StatefulWidget {
-  const Register({super.key});
+
+  Register({super.key, this.showLogin});
+  VoidCallback? showLogin;
 
   @override
   State<Register> createState() => _RegisterState();
 }
 
 class _RegisterState extends State<Register> {
-  bool isChecked = false;
+  TextEditingController txtUsername = TextEditingController();
+  TextEditingController txtPassword = TextEditingController();
+  TextEditingController txtConfirm = TextEditingController();
+  TextEditingController txtEmail = TextEditingController();
 
-  Color getColor(Set<MaterialState> states) {
-    const Set<MaterialState> interactiveStates = <MaterialState>{
-      MaterialState.pressed,
-      MaterialState.hovered,
-      MaterialState.focused,
-    };
-    if (states.any(interactiveStates.contains)) {
-      return Colors.red;
+  Future register() async {
+    try{
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: txtEmail.text.trim(),
+        password: txtPassword.text.trim(),
+      );
+    }on FirebaseAuthException catch(e) {
+      return ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.message.toString())));
+    }catch (e) {
+      print(e);
     }
-    return Colors.red;
+  }
+
+  Future avnRegister() async {
+    try{
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: txtEmail.text.trim(),
+        password: txtPassword.text.trim(),
+      ).then((value) {
+        final user = Gamer(
+          username: txtUsername.text.trim(),
+          email: txtEmail.text.trim(),
+          level: 0,
+          rank: 'Đồng I'
+        );
+        createUser(user, value.user!.uid);
+      });
+    }on FirebaseAuthException catch(e) {
+      return ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.message.toString())));
+    }catch (e) {
+      print(e);
+    }
+  }
+
+  @override
+  void dispose() {
+    txtUsername.dispose();
+    txtPassword.dispose();
+    txtConfirm.dispose();
+    txtEmail.dispose();
+    super.dispose();
+  }
+
+  bool check() {
+    if(txtUsername.text.isEmpty || txtEmail.text.isEmpty || txtPassword.text.isEmpty || txtConfirm.text.isEmpty) {
+      return true;
+    }
+    return false;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ContainerWImg(
-      child: Container(
-        padding: EdgeInsets.all(30),
-        margin: EdgeInsets.fromLTRB(
-            20, 120, 20, MediaQuery.of(context).size.height / 6.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              'Đăng Nhập',
-              style: TextStyle(
-                  fontSize: 30, fontWeight: FontWeight.bold, color: Colors.red),
+      body: ContainerWImg(
+        child: Center(
+          child: Container(
+            padding: EdgeInsets.all(10),
+            margin: EdgeInsets.fromLTRB(
+                20, 10, 20, 0
             ),
-            TextFieldWText(
-              obscureText: false,
-              headtxt: 'Username: ',
-              hinttxt: 'Nhập username',
-              bordercolor: Colors.red,
-            ),
-            TextFieldWText(
-              obscureText: true,
-              headtxt: 'Password: ',
-              hinttxt: 'Nhập password',
-              bordercolor: Colors.red,
-            ),
-            Row(
+            child: ListView(
               children: [
-                Checkbox(
-                  checkColor: Colors.white,
-                  fillColor: MaterialStateProperty.resolveWith(
-                      (states) => getColor(states)),
-                  value: isChecked,
-                  onChanged: (bool? value) {
-                    setState(() {
-                      isChecked = value!;
-                    });
-                  },
-                ),
-                Text(
-                  'Lưu mật khẩu',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
+                Column(
+                  children: [
+                    HeaderText(text: 'Đăng Ký',),
+                    TextFieldWText(
+                      controller: txtUsername,
+                      obscureText: false,
+                      headtxt: 'Username:',
+                      hinttxt: 'Nhập username',
+                      bordercolor: Colors.red,
+                    ),
+                    SizedBox(height: 20,),
+                    TextFieldWText(
+                      controller: txtPassword,
+                      obscureText: true,
+                      headtxt: 'Password:',
+                      hinttxt: 'Nhập password',
+                      bordercolor: Colors.red,
+                    ),
+                    SizedBox(height: 20,),
+                    TextFieldWText(
+                      controller: txtConfirm,
+                      obscureText: true,
+                      headtxt: 'Xác nhận password:',
+                      hinttxt: 'Nhập lại password',
+                      bordercolor: Colors.red,
+                    ),
+                    SizedBox(height: 20,),
+                    TextFieldWText(
+                      controller: txtEmail,
+                      obscureText: false,
+                      headtxt: 'Email:',
+                      hinttxt: 'Nhập email',
+                      bordercolor: Colors.red,
+                    ),
+                    SizedBox(height: 20,),
+                    SmallButton(
+                      onPressed: () {
+                        avnRegister();
+                        //createUser(user);
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(builder: (context) => Login()),
+                                (route) => route.isFirst
+                        );
+                      },
+                      text: 'Đăng kí',
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(builder: (context) => Login()),
+                                  (route) => route.isFirst
+                          );
+                        },
+                        child: Text('Bạn đã có tài khoản? Đăng nhập ngay',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(fontSize: 15, color: Colors.white),)
+                    )
+                  ],
                 )
               ],
             ),
-            ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll<Color>(
-                      Colors.red.withOpacity(0.8)),
-                  shape: MaterialStateProperty.all(RoundedRectangleBorder()),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Menu(),
-                      ));
-                },
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                  child: Text('Đăng nhập'),
-                )),
-            TextButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Register()));
-                },
-                child: Text(
-                  'Bạn chưa có tài khoản? Đăng kí ngay',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(fontSize: 15, color: Colors.white),
-                ))
-          ],
-        ),
-      ),
-    ));
+          ),
+        )
+      )
+    );
   }
 }
+/*if(check()){
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Vui lòng nhập đầy đủ các trường dữ liệu')));
+                        } else if (txtPassword.text != txtConfirm.text) {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Password không trùng khớp')));
+                        } else {
+                          register();
+                          Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(builder: (context) => Login()),
+                                  (route) => route.isFirst);
+                        }*/

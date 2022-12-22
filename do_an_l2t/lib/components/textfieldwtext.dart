@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 
 class TextFieldWText extends StatefulWidget {
-  TextFieldWText(
-      {Key? key,
-      required this.headtxt,
-      required this.hinttxt,
-      required this.bordercolor,
-      required this.obscureText})
-      : super(key: key);
+  TextFieldWText({Key? key, required this.headtxt, required this.hinttxt, required this.bordercolor, required this.obscureText, required this.controller}) : super(key: key);
 
+  final TextEditingController controller;
   final String headtxt;
   final String hinttxt;
   final bool obscureText;
@@ -18,9 +13,10 @@ class TextFieldWText extends StatefulWidget {
   State<StatefulWidget> createState() {
     return _TextFieldWTextState();
   }
+
 }
 
-class _TextFieldWTextState extends State<TextFieldWText> {
+class _TextFieldWTextState extends State<TextFieldWText>{
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -34,6 +30,7 @@ class _TextFieldWTextState extends State<TextFieldWText> {
         Container(
           color: Colors.white,
           child: TextField(
+            controller: widget.controller,
             obscureText: widget.obscureText,
             style: TextStyle(color: Colors.black),
             decoration: InputDecoration(
@@ -49,4 +46,5 @@ class _TextFieldWTextState extends State<TextFieldWText> {
       ],
     );
   }
+
 }

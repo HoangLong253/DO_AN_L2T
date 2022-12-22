@@ -1,5 +1,5 @@
-import 'package:do_an_l2t/screens/menu.dart';
-import 'package:do_an_l2t/screens/question.dart';
+import '../components/roundedbutton.dart';
+import 'question.dart';
 import 'package:flutter/material.dart';
 
 import 'menu.dart';
@@ -26,108 +26,103 @@ class _PauseState extends State<Pause> {
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
                 child: Container(
-                    //padding: EdgeInsets.all(10),
-                    //margin: EdgeInsets.fromLTRB(20, 20, 20, MediaQuery.of(context).size.height),
+                  //padding: EdgeInsets.all(10),
+                  //margin: EdgeInsets.fromLTRB(20, 20, 20, MediaQuery.of(context).size.height),
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                      Container(
-                          height: 65,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                              color: Colors.red.shade900,
-                              border: Border.all(color: Colors.black54)),
-                          child: Center(
-                            child: Text(
-                              'MÀN 1',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  fontSize: 48,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          )),
-                      Container(
-                          height: 80,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                              color: Colors.redAccent,
-                              border: Border.all(color: Colors.black54)),
-                          child: Center(
-                            child: Text(
-                              'Tạm dừng',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  fontSize: 48,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          )),
-                      Container(
-                        height: 80,
-                        width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                            color: Colors.red.shade700,
-                            border: Border.all(color: Colors.black54)),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            ElevatedButton(
-                                style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStatePropertyAll<Color>(
-                                          Colors.red),
-                                  shape:
-                                      MaterialStateProperty.all(CircleBorder()),
-                                  fixedSize:
-                                      MaterialStateProperty.all(Size(0, 50)),
+                          Container(
+                              height: 80,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  color: Colors.red.shade900,
+                                  border: Border.all(color: Colors.black54)
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'Màn 1',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                      fontSize: 40,
+                                      color: Colors.white,
+                                      fontFamily: 'Avenger'
+                                  ),
                                 ),
-                                onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => Menu(),
-                                      ));
-                                },
-                                child: Center(child: Icon(Icons.home_sharp))),
-                            ElevatedButton(
-                                style: ButtonStyle(
-                                    backgroundColor:
-                                        MaterialStatePropertyAll<Color>(
-                                            Colors.red),
-                                    shape: MaterialStateProperty.all(
-                                        CircleBorder()),
-                                    fixedSize:
-                                        MaterialStateProperty.all(Size(0, 50))),
-                                onPressed: () {
-                                  Navigator.pop(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => Question(),
-                                      ));
-                                },
-                                child:
-                                    Center(child: Icon(Icons.refresh_sharp))),
-                            ElevatedButton(
-                                style: ButtonStyle(
-                                    backgroundColor:
-                                        MaterialStatePropertyAll<Color>(
-                                            Colors.red),
-                                    shape: MaterialStateProperty.all(
-                                        CircleBorder()),
-                                    fixedSize:
-                                        MaterialStateProperty.all(Size(0, 50))),
-                                onPressed: () {
-                                  Navigator.pop(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => Question(),
-                                      ));
-                                },
-                                child: Center(child: Icon(Icons.play_arrow))),
-                          ],
-                        ),
-                      )
-                    ])))));
+                              )
+                          ),
+                          Container(
+                              height: 80,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  color: Colors.redAccent,
+                                  border: Border.all(color: Colors.black54)
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'Tạm dừng',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                      fontSize: 40,
+                                      color: Colors.white,
+                                      fontFamily: 'Avenger'
+                                  ),
+                                ),
+                              )
+                          ),
+                          Container(
+                            height: 80,
+                            width: MediaQuery.of(context).size.width,
+                            decoration: BoxDecoration(
+                                color: Colors.red.shade700,
+                                border: Border.all(color: Colors.black54)
+                            ),
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  //Icons.home_sharp
+                                  RoundedButton(
+                                      padding: EdgeInsets.zero,
+                                      size: 50,
+                                      icon: Icons.home_sharp,
+                                      onPressed: () {
+                                       Navigator.push(
+                                         context,
+                                         MaterialPageRoute(
+                                           builder: (context) => Menu(),
+                                         ),
+                                      );
+                                    },
+                                  ),
+                                  RoundedButton(
+                                      padding: EdgeInsets.zero,
+                                      size: 50,
+                                      icon: Icons.refresh_sharp,
+                                    onPressed: () {
+                                      Navigator.pop(
+                                        context,
+                                      );
+                                    },
+                                  ),
+                                  RoundedButton(
+                                      padding: EdgeInsets.zero,
+                                      size: 50,
+                                      icon: Icons.play_arrow,
+                                    onPressed: () {
+                                      Navigator.pop(
+                                        context,
+                                      );
+                                    },
+                                  ),
+                                ]
+                            )
+                          )
+                        ]
+                    )
+                )
+            )
+        )
+    );
   }
+
 }
+
