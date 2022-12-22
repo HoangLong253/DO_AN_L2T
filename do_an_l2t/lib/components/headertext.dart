@@ -8,13 +8,11 @@ class HeaderText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(20, 100, 20, 0),
+      padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
       child: Text(
         text,
-        style: TextStyle(
-          fontSize: 40,
-          color: Colors.red,
-        ),
+        style:
+            TextStyle(fontSize: 40, color: Colors.red, fontFamily: 'Avenger'),
       ),
     );
   }
