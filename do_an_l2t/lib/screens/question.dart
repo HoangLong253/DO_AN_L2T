@@ -1,4 +1,4 @@
-import 'package:do_an_l2t/screens/pause.dart';
+import 'pause.dart';
 import 'package:flutter/material.dart';
 
 class Question extends StatefulWidget {
@@ -10,9 +10,14 @@ class Question extends StatefulWidget {
 
 class _QuestionState extends State<Question> {
   double buttonRoundSize = 60;
-  double questionNumSize = 40;
+  double questionNumSize = 35;
   double powerTextSize = 10;
-  double bottomButton = 10;
+  double bottomButton = 0;
+  double point = 0;
+
+  IconData volumn = Icons.volume_up;
+  IconData change = Icons.volume_mute;
+  bool isPressed = true;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +48,7 @@ class _QuestionState extends State<Question> {
                               ),
                               child: Center(
                                 child: Text(
-                                    '1/10',
+                                    '1',
                                     style: TextStyle(
                                         fontSize: 10,
                                         fontWeight: FontWeight.bold,
@@ -60,23 +65,13 @@ class _QuestionState extends State<Question> {
                                 shape: MaterialStateProperty.all(CircleBorder()),
                                 fixedSize: MaterialStateProperty.all(Size(0, 35))
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              setState(() {
+                                isPressed = !isPressed;
+                              });
+                            },
                             child: Center(
-                              child: Icon(
-                                Icons.timer_rounded,
-                              ),
-                            )
-                        ),
-                        ElevatedButton(
-                            style: ButtonStyle(
-                                backgroundColor: MaterialStatePropertyAll<Color>(Colors.red),
-                                shape: MaterialStateProperty.all(CircleBorder()),
-                                fixedSize: MaterialStateProperty.all(Size(0, 35))
-                            ),
-                            onPressed: () {},
-                            child: Center(
-                              child: Icon(
-                                Icons.volume_up,
+                              child: Icon((isPressed == false) ? Icons.volume_mute : Icons.volume_up
                               ),
                             )
                         ),
@@ -103,7 +98,16 @@ class _QuestionState extends State<Question> {
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
+                        padding: EdgeInsets.fromLTRB(80, 0, 0, 0),
+                        child: Row(
+                          children: [
+                            Text('Điểm: ', style: TextStyle(color: Colors.white),),
+                            Text(point.toString(), style: TextStyle(color: Colors.white),),
+                          ],
+                        ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(20, 0, 20, 5),
                       child: Container(
                         height: 150,
                         width: 350,
