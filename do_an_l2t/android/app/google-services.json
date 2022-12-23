@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "728979328507",
+    "project_id": "marvel-conquest-test",
+    "storage_bucket": "marvel-conquest-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:728979328507:android:0e47893d8171b6e4aacf5e",
+        "android_client_info": {
+          "package_name": "com.example.do_an_l2t"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "728979328507-6bdqr5hpjqj6duoan6n6jdo1o035jgt5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABk09gznOyWU9Q3YnZ3e1_clxq7FdbTKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "728979328507-6bdqr5hpjqj6duoan6n6jdo1o035jgt5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
