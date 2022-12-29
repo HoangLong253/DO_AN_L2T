@@ -125,6 +125,17 @@ class _RegisterState extends State<Register> {
                     SizedBox(height: 20,),
                     SmallButton(
                       onPressed: () {
+                        if(check()){
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Vui lòng nhập đầy đủ các trường dữ liệu')));
+                        } else if (txtPassword.text != txtConfirm.text) {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Password không trùng khớp')));
+                        } else {
+                          register();
+                          Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(builder: (context) => Login()),
+                                  (route) => route.isFirst);
+                        }
                         avnRegister();
                         //createUser(user);
                         Navigator.pushAndRemoveUntil(
