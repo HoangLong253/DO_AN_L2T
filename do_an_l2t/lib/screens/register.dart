@@ -152,12 +152,6 @@ class _RegisterState extends State<Register> {
                           MaterialPageRoute(builder: (context) => Login()),
                           (route) => route.isFirst);
                     }
-                    avnRegister();
-                    //createUser(user);
-                    Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(builder: (context) => Login()),
-                        (route) => route.isFirst);
                   },
                   text: 'Đăng kí',
                 ),
