@@ -146,7 +146,7 @@ class _RegisterState extends State<Register> {
                       ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text('Password không trùng khớp')));
                     } else {
-                      register();
+                      avnRegister();
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(builder: (context) => Login()),
